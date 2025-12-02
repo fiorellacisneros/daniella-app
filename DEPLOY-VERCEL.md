@@ -26,18 +26,32 @@
    - Importa tu repositorio de GitHub/GitLab
    - Vercel detectará automáticamente que es un proyecto Vite
 
-3. **Configura las Variables de Entorno**
+3. **Configura las Variables de Entorno** ⚠️ **MUY IMPORTANTE**
    - En la configuración del proyecto, ve a **Settings > Environment Variables**
-   - Agrega las siguientes variables:
-     ```
-     VITE_SUPABASE_URL=https://pwnhvjswizyiejzgaywf.supabase.co
-     VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3bmh2anN3aXp5aWVqemdheXdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2NDMxMzIsImV4cCI6MjA4MDIxOTEzMn0.tThGZ5VKXWXNNEwuS_c2UdSOM7eVmH_BPFLc7o45QUU
-     ```
-   - Asegúrate de seleccionar **Production**, **Preview**, y **Development**
+   - Haz clic en **"Add New"** y agrega cada variable:
+   
+   **Variable 1:**
+   - Name: `VITE_SUPABASE_URL`
+   - Value: `https://pwnhvjswizyiejzgaywf.supabase.co`
+   - Environments: ✅ Production, ✅ Preview, ✅ Development
+   
+   **Variable 2:**
+   - Name: `VITE_SUPABASE_ANON_KEY`
+   - Value: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB3bmh2anN3aXp5aWVqemdheXdmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2NDMxMzIsImV4cCI6MjA4MDIxOTEzMn0.tThGZ5VKXWXNNEwuS_c2UdSOM7eVmH_BPFLc7o45QUU`
+   - Environments: ✅ Production, ✅ Preview, ✅ Development
+   
+   - **IMPORTANTE**: Después de agregar las variables, debes **REDEPLOY** el proyecto para que surtan efecto
 
 4. **Deploy**
    - Haz clic en **"Deploy"**
    - Espera a que se complete el build (2-3 minutos)
+   
+5. **⚠️ Si agregaste variables después del primer deploy:**
+   - Ve a **Deployments**
+   - Haz clic en los **3 puntos** del último deployment
+   - Selecciona **"Redeploy"**
+   - O haz un nuevo commit y push (Vercel redeployará automáticamente)
+   
    - ¡Tu app estará lista!
 
 ### Opción 2: Deploy desde CLI
