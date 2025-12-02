@@ -1,0 +1,536 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #0C083A;
+  --button-primary: #492AAC;
+  --text-color: #ECEFFF;
+  --glass-card: #454368;
+  --glass-card-hover: #5a5278;
+  --success: #52c41a;
+  --warning: #faad14;
+  --error: #ff4d4f;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Mobile First - Base styles */
+.app-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* Glass morphism effect */
+.glass-card {
+  background: rgba(69, 67, 104, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-card:hover {
+  background: rgba(90, 82, 120, 0.7);
+  transition: all 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-card);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--glass-card-hover);
+}
+
+/* Ant Design overrides */
+.ant-btn-primary {
+  background-color: var(--button-primary);
+  border-color: var(--button-primary);
+  font-weight: 600;
+}
+
+.ant-btn-primary:hover {
+  background-color: #5a3bc4;
+  border-color: #5a3bc4;
+}
+
+.ant-btn {
+  font-weight: 600;
+}
+
+.ant-btn-default {
+  color: #ECEFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(69, 67, 104, 0.4);
+}
+
+.ant-btn-default:hover {
+  color: #ECEFFF;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(69, 67, 104, 0.6);
+}
+
+.ant-input,
+.ant-select-selector,
+.ant-picker {
+  background-color: rgba(69, 67, 104, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: var(--text-color) !important;
+}
+
+.ant-input::placeholder,
+.ant-select-selection-placeholder {
+  color: rgba(236, 239, 255, 0.5) !important;
+}
+
+.ant-modal-content {
+  background-color: var(--bg-primary) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ant-modal-header {
+  background-color: var(--bg-primary) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ant-modal-title {
+  color: var(--text-color) !important;
+  font-weight: 700 !important;
+}
+
+.ant-form-item-label > label {
+  color: #ECEFFF !important;
+  font-weight: 600 !important;
+  opacity: 0.95 !important;
+}
+
+.ant-drawer-content {
+  background-color: var(--bg-primary) !important;
+}
+
+.ant-drawer-header {
+  background-color: var(--bg-primary) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ant-drawer-title {
+  color: var(--text-color) !important;
+}
+
+.ant-collapse {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.ant-collapse-item {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+.ant-collapse-header {
+  color: var(--text-color) !important;
+  font-weight: 600 !important;
+  background-color: rgba(69, 67, 104, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+}
+
+.ant-collapse-content {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.ant-collapse-content-box {
+  padding: 12px 0 !important;
+}
+
+/* Tabs styling */
+.ant-tabs-tab {
+  color: rgba(236, 239, 255, 0.7) !important;
+  font-weight: 600 !important;
+}
+
+.ant-tabs-tab:hover {
+  color: #ECEFFF !important;
+}
+
+.ant-tabs-tab-active {
+  color: #ECEFFF !important;
+  font-weight: 700 !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #ECEFFF !important;
+  font-weight: 700 !important;
+}
+
+.ant-tabs-ink-bar {
+  background: #ECEFFF !important;
+}
+
+.ant-tabs-nav::before {
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ============================================
+   MICRO INTERACTIONS & ANIMATIONS
+   ============================================ */
+
+/* Button animations */
+@keyframes buttonPress {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+@keyframes buttonPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(73, 42, 172, 0.7); }
+  50% { box-shadow: 0 0 0 8px rgba(73, 42, 172, 0); }
+}
+
+.ant-btn-primary:active {
+  animation: buttonPress 0.2s ease;
+}
+
+.ant-btn-primary:hover {
+  animation: buttonPulse 2s infinite;
+}
+
+/* Card hover animations */
+@keyframes cardLift {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-4px) scale(1.02); }
+}
+
+@keyframes cardShimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.glass-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.glass-card:hover::before {
+  left: 100%;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+}
+
+.glass-card:active {
+  transform: translateY(-2px) scale(1);
+  transition: all 0.1s ease;
+}
+
+/* Success animation */
+@keyframes successCheck {
+  0% { transform: scale(0) rotate(-45deg); }
+  50% { transform: scale(1.2) rotate(0deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes successPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.task-completed {
+  animation: successCheck 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.task-completed-icon {
+  animation: successPulse 0.6s ease;
+}
+
+/* Loading skeleton animation */
+@keyframes skeletonLoading {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(69, 67, 104, 0.3) 0px,
+    rgba(90, 82, 120, 0.5) 40px,
+    rgba(69, 67, 104, 0.3) 80px
+  );
+  background-size: 200px 100%;
+  animation: skeletonLoading 1.5s infinite;
+}
+
+/* Fade in animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.fade-in-scale {
+  animation: fadeInScale 0.3s ease-out;
+}
+
+/* Slide animations */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.bounce {
+  animation: bounce 0.6s ease;
+}
+
+/* Ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.6s, opacity 0.6s;
+}
+
+.ripple-effect:active::after {
+  opacity: 1;
+  transform: scale(4);
+  transition: 0s;
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Spin animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Scale on hover */
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Smooth transitions for all interactive elements */
+button, .ant-btn, .glass-card, .nav-item, .calendar-day, .task-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects with better feedback */
+button:hover, .ant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(73, 42, 172, 0.4);
+}
+
+button:active, .ant-btn:active {
+  transform: translateY(0);
+  transition: all 0.1s ease;
+}
+
+/* Modal animations */
+.ant-modal-mask {
+  animation: fadeIn 0.2s ease;
+}
+
+.ant-modal-wrap {
+  animation: fadeInScale 0.3s ease;
+}
+
+/* Tag animations */
+.ant-tag {
+  transition: all 0.2s ease;
+  font-weight: 600;
+  border: none;
+}
+
+.ant-tag:hover {
+  transform: scale(1.05);
+}
+
+/* Input focus animations */
+.ant-input:focus,
+.ant-select-focused .ant-select-selector,
+.ant-picker-focused {
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 0 2px rgba(73, 42, 172, 0.2) !important;
+}
+
+/* Progress bar animation */
+.ant-progress-bg {
+  transition: width 0.6s ease;
+}
+
+/* Avatar hover effect */
+.ant-avatar {
+  transition: all 0.3s ease;
+}
+
+.ant-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(73, 42, 172, 0.5);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  }
+}
+

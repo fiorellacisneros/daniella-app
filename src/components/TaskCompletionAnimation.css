@@ -1,0 +1,92 @@
+.completion-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(12, 8, 58, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.completion-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.completion-check {
+  font-size: 80px;
+  color: #52c41a;
+  animation: successCheck 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.completion-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ECEFFF;
+  animation: fadeInScale 0.5s ease 0.2s both;
+}
+
+.completion-particles {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #52c41a;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: particleExplode 1s ease-out var(--delay) both;
+}
+
+@keyframes particleExplode {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(-50% + 80px * cos(var(--angle))),
+      calc(-50% + 80px * sin(var(--angle)))
+    ) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Fallback para navegadores que no soportan cos/sin en CSS */
+@supports not (transform: translate(calc(-50% + 80px * cos(0deg)), calc(-50% + 80px * sin(0deg)))) {
+  .particle {
+    animation: particleExplodeFallback 1s ease-out var(--delay) both;
+  }
+}
+
+@keyframes particleExplodeFallback {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(80px) scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+

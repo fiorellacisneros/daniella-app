@@ -1,0 +1,65 @@
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #0C083A;
+}
+
+.login-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-header {
+  margin-bottom: 32px;
+}
+
+.login-card {
+  padding: 24px;
+}
+
+.login-card .ant-tabs-tab {
+  color: rgba(236, 239, 255, 0.7) !important;
+  font-weight: 600 !important;
+}
+
+.login-card .ant-tabs-tab:hover {
+  color: #ECEFFF !important;
+}
+
+.login-card .ant-tabs-tab-active {
+  color: #ECEFFF !important;
+  font-weight: 700 !important;
+}
+
+.login-card .ant-tabs-ink-bar {
+  background: #ECEFFF !important;
+  height: 3px !important;
+}
+
+.login-card .ant-tabs-nav::before {
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.login-card .ant-btn-primary {
+  background: #ECEFFF !important;
+  border-color: #ECEFFF !important;
+  color: #0C083A !important;
+  font-weight: 700 !important;
+}
+
+.login-card .ant-btn-primary:hover {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #0C083A !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(236, 239, 255, 0.3);
+}
+
+.login-card .ant-btn-primary:active {
+  background: #ECEFFF !important;
+  transform: translateY(0);
+}
+
