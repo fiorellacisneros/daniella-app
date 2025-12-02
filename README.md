@@ -49,6 +49,14 @@ npm run dev
 npm run build
 ```
 
+## 🚀 Deploy en Vercel
+
+La aplicación está lista para deploy en Vercel. Ver `DEPLOY-VERCEL.md` para instrucciones detalladas.
+
+**Variables de entorno necesarias en Vercel:**
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+
 ## 🎨 Colores
 
 - **Background Primary**: `#0C083A`

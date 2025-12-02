@@ -1,0 +1,11 @@
+# Archivos que no se deben subir a Vercel
+.env
+.env.local
+.env.production.local
+.env.development.local
+node_modules
+.DS_Store
+*.log
+.vscode
+.idea
+
